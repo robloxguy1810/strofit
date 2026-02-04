@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strofit Pvt. Ltd. | Financial Dispute Resolution & Fund Recovery</title>
+    <meta name="description" content="Strofit Pvt. Ltd. - Expert financial consultants helping clients resolve disputes and recover lost funds.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            --primary-color: #0F172A;
+            --secondary-color: #1E293B;
+            --accent-color: #D4AF37;
+            --accent-hover: #b5952f;
+            --text-dark: #333333;
+            --text-light: #F8FAFC;
+            --bg-light: #F1F5F9;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--white); }
+        
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* Components */
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.9rem;
+            border: none;
+        }
+
+        .btn-primary { background-color: var(--accent-color); color: var(--primary-color); }
+        .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+        
+        .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
+        .btn-outline:hover { background-color: var(--accent-color); color: var(--primary-color); }
+
+        .section-padding { padding: 80px 0; }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-title p { color: #64748b; font-size: 1.1rem; margin-top: 15px; }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span { color: var(--accent-color); }
+        
+        .nav-menu { display: flex; gap: 30px; align-items: center; }
+        .nav-link { font-weight: 600; color: var(--primary-color); font-size: 1rem; transition: var(--transition); }
+        .nav-link:hover { color: var(--accent-color); }
+        
+        .hamburger { display: none; cursor: pointer; }
+        .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: var(--primary-color); }
+
+        /* --- Hero --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), url('https://picsum.photos/seed/finance_building/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content { color: var(--white); max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.25rem; margin-bottom: 40px; color: #cbd5e1; }
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; }
+
+        /* --- About --- */
+        .about { background-color: var(--white); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img { border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+        .about-text h3 { color: var(--accent-color); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; }
+        .about-text h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--primary-color); }
+        .about-text p { margin-bottom: 20px; color: #64748b; }
+        .stats { display: flex; gap: 40px; margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+        .stat-item h4 { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 5px; }
+        .stat-item span { font-size: 0.9rem; font-weight: 600; color: var(--secondary-color); }
+
+        /* --- Services --- */
+        .services { background-color: var(--bg-light); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+        .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--accent-color); }
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .icon-box i { font-size: 1.8rem; color: var(--accent-color); }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--primary-color); }
+        .service-card p { color: #64748b; font-size: 0.95rem; }
+
+        /* --- Process --- */
+        .process { background-color: var(--primary-color); color: var(--white); }
+        .process .section-title h2 { color: var(--white); }
+        .process .section-title p { color: #94a3b8; }
+        .process-steps { display: flex; justify-content: space-between; position: relative; flex-wrap: wrap; gap: 30px; }
+        .process-steps::before {
+            content: ''; position: absolute; top: 40px; left: 50px; right: 50px; height: 2px; background: rgba(255,255,255,0.2); z-index: 0;
+        }
+        .step { flex: 1; text-align: center; position: relative; z-index: 1; min-width: 200px; }
+        .step-number {
+            width: 80px; height: 80px; background-color: var(--accent-color); color: var(--primary-color); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; margin: 0 auto 25px auto; border: 4px solid var(--primary-color);
+        }
+        .step h3 { margin-bottom: 10px; font-size: 1.3rem; }
+        .step p { color: #cbd5e1; font-size: 0.9rem; padding: 0 15px; }
+
+        /* --- Contact --- */
+        .contact { background-color: var(--white); }
+        .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; box-shadow: var(--shadow); border-radius: 12px; overflow: hidden; }
+        .contact-info {
+            background-color: var(--primary-color); padding: 50px; color: var(--white); display: flex; flex-direction: column; justify-content: center;
+        }
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 10px; }
+        .contact-info p { margin-bottom: 40px; color: #cbd5e1; }
+        .info-item { display: flex; align-items: center; margin-bottom: 25px; }
+        .info-item i {
+            width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: var(--accent-color);
+        }
+        .contact-form-wrapper { background-color: var(--white); padding: 50px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--secondary-color); }
+        .form-control {
+            width: 100%; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 4px; font-family: inherit; transition: var(--transition);
+        }
+        .form-control:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1); }
+
+        /* --- Footer --- */
+        footer { background-color: #0b1120; color: #94a3b8; padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
+        .footer-col h4 { color: var(--white); margin-bottom: 20px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: var(--accent-color); }
+        .footer-bottom { text-align: center; font-size: 0.9rem; }
+
+        /* --- Mobile --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+            .process-steps::before { display: none; }
+        }
+        @media (max-width: 768px) {
+            .hamburger { display: block; z-index: 1001; }
+            .nav-menu {
+                position: fixed; left: -100%; top: 0; flex-direction: column; background-color: var(--white); width: 100%; height: 100vh; justify-content: center; transition: 0.3s; box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active { left: 0; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title h2 { font-size: 2rem; }
+            .process-steps { flex-direction: column; align-items: center; }
+            .step { width: 100%; margin-bottom: 30px; }
+            .contact-info, .contact-form-wrapper { padding: 30px 20px; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-scale-balanced"></i> Strofit<span>.Pvt</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#process" class="nav-link">Process</a></li>
+                    <li><a href="#contact" class="btn btn-primary">Book Consultation</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Reclaim What Is Rightfully Yours</h1>
+            <p>Strofit Pvt. Ltd. specializes in expert financial dispute resolution. We fight to recover your funds from scams, corporate errors, and banking disputes.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start Recovery Now</a>
+                <a href="#services" class="btn btn-outline" style="color:white; border-color: white;">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="https://picsum.photos/seed/consultant_meeting/600/500" alt="Financial Consultants in a meeting">
+                </div>
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <h2>Your Trusted Partner in Financial Justice</h2>
+                    <p>At <strong>Strofit - Pvt. Ltd.</strong>, we understand that losing money due to fraud or mismanagement is not just a financial loss; it is an emotional ordeal. Our team of seasoned experts combines financial acumen with legal strategies to navigate complex disputes.</p>
+                    <p>Whether you are dealing with binary options fraud, credit card chargebacks, or investment scams, we have the tools and the tenacity to get your money back.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>$10M+</h4>
+                            <span>Recovered</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4>500+</h4>
+                            <span>Cases Won</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4>98%</h4>
+                            <span>Success Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Expertise</h2>
+                <p>We provide comprehensive solutions to handle a wide variety of financial disputes.</p>
+            </div>
+            
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Fund Recovery</h3>
+                    <p>Specialized recovery services for victims of online trading scams, forex fraud, and cryptocurrency theft.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <h3>Chargeback Assistance</h3>
+                    <p>We help you navigate the complex bank chargeback process to reverse unauthorized or fraudulent transactions.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-gavel"></i></div>
+                    <h3>Dispute Resolution</h3>
+                    <p>Professional mediation and negotiation services to settle financial conflicts without lengthy court battles.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Corporate Audit</h3>
+                    <p>We assist businesses in tracking misappropriated funds and resolving internal financial discrepancies.</p>
+                </article>
+                
+                 <article class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3>Asset Tracing</h3>
+                    <p>Utilizing advanced forensic accounting techniques to locate hidden assets connected to your dispute.</p>
+                </article>
+
+                 <article class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-scale-unbalanced"></i></div>
+                    <h3>Legal Consultation</h3>
+                    <p>Access to our network of legal experts ready to provide guidance for complex financial litigation.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section-padding process">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Our streamlined process ensures transparency and efficiency at every step.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Initial Consultation</h3>
+                    <p>Contact us for a confidential evaluation of your case. We assess the feasibility of recovery.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Investigation</h3>
+                    <p>Our team gathers evidence, traces transactions, and identifies the entities involved.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Execution</h3>
+                    <p>We launch a strategic campaign involving legal threats, negotiations, and chargeback claims.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Recovery</h3>
+                    <p>Once successful, your funds are transferred back to your designated account securely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book a Consultation</h2>
+                <p>Time is critical in financial disputes. Fill out the form below to speak with an expert.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Our support team is available 24/7 to answer your questions.</p>
+                    
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Headquarters</strong><br>
+                            218 Gautam Buddha Nagar, Sector 18<br>
+                            Uttar Pradesh , India 201013
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +91 98765 43210
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            ronitchatterjee1672@gmail.com
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <!-- 
+                        FORMSPREE INTEGRATION COMPLETE
+                        The Action URL has been updated to your specific endpoint.
+                    -->
+                    <form action="https://formspree.io/f/xeezynyw" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="abc@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 90000 00000" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Case</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 20px; display: inline-block;">
+                        <i class="fa-solid fa-scale-balanced"></i> Strofit<span>.Pvt</span>
+                    </a>
+                    <p>Dedicated to helping individuals and businesses recover assets and resolve financial conflicts with integrity and expertise.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="font-size: 1.2rem;"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" style="font-size: 1.2rem;"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" style="font-size: 1.2rem;"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Strofit - Pvt. Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        navLinks.forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    </script>
+</body>
+</html>
